@@ -1,0 +1,195 @@
+:root {
+  --papier: #eef2f6;
+  --karte: #ffffff;
+  --tinte: #1b2a41;
+  --tinte-hell: #52627a;
+  --linie: #cbd5e1;
+  --marker: #ffe45e;
+  --akzent: #2f5d9e;
+  --fehler: #b3261e;
+  --schrift: "Georgia", "Times New Roman", serif;
+  --ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--papier);
+  color: var(--tinte);
+  font-family: var(--ui);
+  line-height: 1.55;
+}
+
+.nur-leser {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.kopf {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 1.5rem;
+}
+
+.kopf h1 {
+  margin: 0;
+  font-family: var(--schrift);
+  font-size: clamp(2.4rem, 7vw, 3.8rem);
+  line-height: 1.05;
+  display: inline;
+  background: linear-gradient(transparent 55%, var(--marker) 55%, var(--marker) 92%, transparent 92%);
+  padding: 0 0.15em;
+}
+
+.kopf p {
+  margin: 1rem 0 0;
+  color: var(--tinte-hell);
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 860px) {
+  main { grid-template-columns: 340px 1fr; align-items: start; }
+  .eingabe { position: sticky; top: 1.5rem; }
+}
+
+h2 {
+  font-family: var(--schrift);
+  font-size: 1.4rem;
+  margin: 0 0 1rem;
+}
+
+/* Formular */
+.eingabe {
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 6px;
+  padding: 1.25rem;
+}
+
+.typwahl {
+  border: 0;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.typwahl label { flex: 1; }
+.typwahl input { position: absolute; opacity: 0; }
+
+.typwahl span {
+  display: block;
+  text-align: center;
+  padding: 0.5rem;
+  border: 1px solid var(--linie);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.typwahl input:checked + span {
+  background: var(--tinte);
+  border-color: var(--tinte);
+  color: #fff;
+}
+
+.typwahl input:focus-visible + span {
+  outline: 3px solid var(--akzent);
+  outline-offset: 2px;
+}
+
+.feld { display: block; margin-bottom: 1rem; }
+.feld > span { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+
+input[type="text"], input[type="search"], textarea, select {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--linie);
+  border-radius: 4px;
+  background: #fff;
+}
+
+textarea { resize: vertical; }
+
+input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-visible {
+  outline: 3px solid var(--akzent);
+  outline-offset: 1px;
+}
+
+button {
+  font: inherit;
+  font-weight: 600;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--akzent);
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover { background: #244a80; }
+button:disabled { background: var(--tinte-hell); cursor: wait; }
+
+#meldung { min-height: 1.5rem; margin: 0.75rem 0 0; font-size: 0.95rem; }
+#meldung.fehler { color: var(--fehler); }
+
+/* Liste */
+.liste-kopf {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: end;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.liste-kopf h2 { margin: 0; }
+.werkzeuge { display: flex; gap: 0.5rem; flex: 1; min-width: 220px; max-width: 360px; }
+.werkzeuge select { width: auto; }
+
+.liste { display: grid; gap: 0.9rem; }
+
+.eintrag {
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-left-width: 6px;
+  border-radius: 4px;
+  padding: 1rem 1.1rem;
+}
+
+.eintrag.begriff { border-left-color: var(--marker); }
+.eintrag.notiz { border-left-color: var(--akzent); }
+
+.eintrag h3 {
+  margin: 0 0 0.35rem;
+  font-family: var(--schrift);
+  font-size: 1.2rem;
+}
+
+.eintrag p { margin: 0; white-space: pre-wrap; }
+
+.eintrag small {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--tinte-hell);
+}
+
+.leer {
+  padding: 1.5rem;
+  border: 1px dashed var(--linie);
+  border-radius: 4px;
+  color: var(--tinte-hell);
+}

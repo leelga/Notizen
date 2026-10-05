@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lernzettel – Notizen und Begriffe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="kopf">
+    <h1>Lernzettel</h1>
+    <p>Sammle Begriffe und Notizen an einem Ort.</p>
+  </header>
+
+  <main>
+    <section class="eingabe" aria-labelledby="eingabe-titel">
+      <h2 id="eingabe-titel">Neuer Eintrag</h2>
+      <form id="formular">
+        <fieldset class="typwahl">
+          <legend class="nur-leser">Art des Eintrags</legend>
+          <label><input type="radio" name="typ" value="Begriff" checked><span>Begriff</span></label>
+          <label><input type="radio" name="typ" value="Notiz"><span>Notiz</span></label>
+        </fieldset>
+
+        <label class="feld">
+          <span id="titel-label">Begriff</span>
+          <input type="text" id="titel" required maxlength="100" autocomplete="off">
+        </label>
+
+        <label class="feld">
+          <span id="text-label">Erklärung</span>
+          <textarea id="text" rows="4" required></textarea>
+        </label>
+
+        <button type="submit" id="speichern">Eintrag speichern</button>
+        <p id="meldung" role="status"></p>
+      </form>
+    </section>
+
+    <section class="liste-bereich" aria-labelledby="liste-titel">
+      <div class="liste-kopf">
+        <h2 id="liste-titel">Deine Einträge</h2>
+        <div class="werkzeuge">
+          <input type="search" id="suche" placeholder="Suchen …" aria-label="Einträge durchsuchen">
+          <select id="filter" aria-label="Nach Art filtern">
+            <option value="">Alle</option>
+            <option value="Begriff">Begriffe</option>
+            <option value="Notiz">Notizen</option>
+          </select>
+        </div>
+      </div>
+      <div id="liste" class="liste"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
