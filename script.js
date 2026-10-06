@@ -3,7 +3,7 @@
 // (siehe Anleitung). Solange das Feld leer ist, läuft die App
 // im Testmodus und speichert nur im Browser.
 // ============================================================
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKE5nsoJLVydV1SXDRbzkmQnv4OVqqxMFhrIYjz0G1THbWkC89H6YRyRHz4IQzp30n/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzgHFUham4GHJtwIlktwB4eAqQH149s3X2kSnKLwdGNDcE3Enr1KVqRp-am2ekLbkFI/exec";
 
 const formular = document.getElementById("formular");
 const titelFeld = document.getElementById("titel");
