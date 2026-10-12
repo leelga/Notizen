@@ -225,3 +225,50 @@ button.klein:hover { background: var(--papier); }
 
 button.klein.gefahr { color: var(--fehler); }
 button.klein.gefahr:hover { background: #fdecea; }
+
+
+/* ===== Dunkelmodus ===== */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --papier: #0f1724;
+  --karte: #17233a;
+  --tinte: #e6ecf5;
+  --tinte-hell: #9fb0c8;
+  --linie: #2c3b57;
+  --akzent: #6ea2ec;
+  --fehler: #ff8a80;
+}
+
+/* Überschrift: dunkle Schrift auf dem gelben Marker bleibt lesbar */
+html[data-theme="dark"] .kopf h1 { color: #1b2a41; }
+
+html[data-theme="dark"] input[type="text"],
+html[data-theme="dark"] input[type="search"],
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+  background: var(--papier);
+}
+
+/* Helle Flächen brauchen dunkle Schrift */
+html[data-theme="dark"] .typwahl input:checked + span { color: #0f1724; }
+html[data-theme="dark"] #speichern { color: #0b1220; }
+html[data-theme="dark"] #speichern:hover { background: #8fb8f2; }
+html[data-theme="dark"] button:disabled { background: var(--tinte-hell); }
+html[data-theme="dark"] button.klein.gefahr:hover { background: #3a1f24; }
+
+/* Umschalter */
+.theme-knopf {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  width: auto;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.9rem;
+  background: var(--karte);
+  color: var(--tinte);
+  border: 1px solid var(--linie);
+  border-radius: 999px;
+}
+
+.theme-knopf:hover { background: var(--papier); }
