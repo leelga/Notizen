@@ -3,7 +3,7 @@
 // Solange das Feld leer ist, läuft die App im Testmodus und
 // speichert nur im Browser.
 // ============================================================
-const SCRIPT_URL = "https://script.google.com/macros/s/DEINE-ID/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzgHFUham4GHJtwIlktwB4eAqQH149s3X2kSnKLwdGNDcE3Enr1KVqRp-am2ekLbkFI/exec";
 
 const formular = document.getElementById("formular");
 const formTitel = document.getElementById("eingabe-titel");
