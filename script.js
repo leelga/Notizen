@@ -244,3 +244,29 @@ filterFeld.addEventListener("change", anzeigen);
 
 aktualisiereBeschriftung();
 laden();
+
+const themeBtn = document.createElement("button");
+themeBtn.type = "button";
+themeBtn.className = "theme-knopf";
+document.body.appendChild(themeBtn);
+
+function themeSetzen(dunkel) {
+  document.documentElement.dataset.theme = dunkel ? "dark" : "light";
+  themeBtn.textContent = dunkel ? "☀ Hell" : "☾ Dunkel";
+  themeBtn.setAttribute("aria-pressed", String(dunkel));
+}
+
+// Startwert: gespeicherte Wahl, sonst die Einstellung des Geräts
+let gespeichertesTheme = null;
+try { gespeichertesTheme = localStorage.getItem("theme"); } catch (e) { /* ignorieren */ }
+themeSetzen(
+  gespeichertesTheme
+    ? gespeichertesTheme === "dark"
+    : window.matchMedia("(prefers-color-scheme: dark)").matches
+);
+
+themeBtn.addEventListener("click", () => {
+  const dunkel = document.documentElement.dataset.theme !== "dark";
+  themeSetzen(dunkel);
+  try { localStorage.setItem("theme", dunkel ? "dark" : "light"); } catch (e) { /* ignorieren */ }
+});
