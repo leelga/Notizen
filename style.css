@@ -193,3 +193,35 @@ button:disabled { background: var(--tinte-hell); cursor: wait; }
   border-radius: 4px;
   color: var(--tinte-hell);
 }
+
+/* Bearbeiten und Löschen */
+button[hidden] { display: none; }
+
+#abbrechen {
+  margin-top: 0.5rem;
+  background: transparent;
+  color: var(--tinte);
+  border: 1px solid var(--linie);
+}
+
+#abbrechen:hover { background: var(--papier); }
+
+.aktionen {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+button.klein {
+  width: auto;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.9rem;
+  background: transparent;
+  color: var(--akzent);
+  border: 1px solid var(--linie);
+}
+
+button.klein:hover { background: var(--papier); }
+
+button.klein.gefahr { color: var(--fehler); }
+button.klein.gefahr:hover { background: #fdecea; }
