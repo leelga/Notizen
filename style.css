@@ -239,8 +239,11 @@ html[data-theme="dark"] {
   --fehler: #ff8a80;
 }
 
-/* Überschrift: dunkle Schrift auf dem gelben Marker bleibt lesbar */
-html[data-theme="dark"] .kopf h1 { color: #1b2a41; }
+/* Überschrift: helle Schrift, Marker wird abgedunkelt */
+html[data-theme="dark"] .kopf h1 {
+  color: var(--tinte);
+  background: linear-gradient(transparent 55%, rgba(255, 228, 94, 0.35) 55%, rgba(255, 228, 94, 0.35) 92%, transparent 92%);
+}
 
 html[data-theme="dark"] input[type="text"],
 html[data-theme="dark"] input[type="search"],
